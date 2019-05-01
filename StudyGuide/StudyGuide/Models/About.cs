@@ -8,8 +8,8 @@ namespace StudyGuide.Models
     public class About
     {
         public string Coach { get; set; }
-        public int BowlRecord { get; set; }
-        public int NationalTitle { get; set; }
+        public string BowlRecord { get; set; }
+        public string NationalTitle { get; set; }
 
     }
 }

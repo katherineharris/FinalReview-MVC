@@ -8,24 +8,30 @@
 {
     if (item.IsHomeGame == true)
     {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card" style="width: 200px; color:white; background-color:darkred; height:255px; border-radius:25px; border:5px; float:left; padding:5px">
+            <span class="glyphicon glyphicon-home"></span>
             <div class="card-body">
+                @if (item.Opponent == "Texas")
+                {
+                <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg" />
+                }
                 <h5 class="card-title">OU vs. @item.Opponent</h5>
-                <p class="card-text">@item.Date</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <p class="card-text">@item.Date.ToLongDateString()</p>
             </div>
         </div>
     }
     if (item.IsHomeGame == false)
     {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">OU vs. @item.Opponent</h5>
-                <p class="card-text">@item.Date</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        <div class="card" style="width: 200px; color:white; background-color: black; height:255px;border-radius:25px; border:5px; float:left;padding:5px">
+                        <span class="glyphicon glyphicon-globe"></span>
+                        <div class="card-body">
+                            @if (item.Opponent == "Texas")
+                            {
+                                <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg" />
+                            }
+                            <h5 class="card-title">OU vs. @item.Opponent</h5>
+                            <p class="card-text">@item.Date.ToLongDateString()</p>
+                        </div>
         </div>
     }
    

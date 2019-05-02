@@ -15,9 +15,10 @@ namespace StudyGuide.Controllers
         private DB_128040_practiceEntities db = new DB_128040_practiceEntities();
 
         // GET: Schedule
-        public ActionResult Index()
+        public ActionResult Index(int year = 2019)
         {
-            return View(db.FootballSchedules.ToList());
+            var date = db.FootballSchedules.Where(x => x.Season == year);
+            return View(date);
         }
 
         // GET: Schedule/Details/5

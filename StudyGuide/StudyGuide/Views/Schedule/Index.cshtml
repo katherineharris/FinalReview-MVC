@@ -2,41 +2,47 @@
 
 @{
     ViewBag.Title = "Index";
+
 }
+
+
+<h1>OU Football Schedule for @Model.First().Season</h1>
 
 @foreach (var item in Model)
 {
     if (item.IsHomeGame == true)
     {
-        <div class="card" style="width: 200px; color:white; background-color:darkred; height:255px; border-radius:25px; border:5px; float:left; padding:5px">
-            <span class="glyphicon glyphicon-home"></span>
+        <div class="card" style="margin: 5px; width: 200px; color:white; background-color:darkred; height:255px; border-radius:25px; border:5px; float:left; padding:5px;">
+            <span class="glyphicon glyphicon-home" style="font-size:2em;"></span>
+            <h5 class="card-title" style="font-size:2em;">OU vs. @item.Opponent</h5>
             <div class="card-body">
-                @if (item.Opponent == "Texas")
+                @if (item.Opponent.Trim() == "Texas")
                 {
-                <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg" />
+                    <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg" style="width:100px;height:auto" />
                 }
-                <h5 class="card-title">OU vs. @item.Opponent</h5>
+
                 <p class="card-text">@item.Date.ToLongDateString()</p>
             </div>
         </div>
     }
     if (item.IsHomeGame == false)
     {
-        <div class="card" style="width: 200px; color:white; background-color: black; height:255px;border-radius:25px; border:5px; float:left;padding:5px">
-                        <span class="glyphicon glyphicon-globe"></span>
-                        <div class="card-body">
-                            @if (item.Opponent == "Texas")
-                            {
-                                <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg" />
-                            }
-                            <h5 class="card-title">OU vs. @item.Opponent</h5>
-                            <p class="card-text">@item.Date.ToLongDateString()</p>
-                        </div>
+        <div class="card" style="margin:5px;width: 200px; color:white; background-color: black; height:255px;border-radius:25px; border:5px; float:left; padding:5px">
+            <span class="glyphicon glyphicon-globe" style="font-size:2em;"></span>
+            <div class="card-body">
+                <h5 class="card-title" style="font-size:2em;">OU vs. @item.Opponent</h5>
+                @if (item.Opponent.Trim() == "Texas")
+                {
+                    <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg" style="width:100px;height:auto" />
+                }
+
+                <p class="card-text">@item.Date.ToLongDateString()</p>
+            </div>
         </div>
     }
-   
+
 }
-}
+
 
 @*<h2>Index</h2>
 
